@@ -1,0 +1,171 @@
+<div class="register" *ngIf="typeConfirm === 1">
+  <header class="header" >
+    <span (click)="back()" style="cursor: pointer;">
+      <img src="{{globals.urlFolder}}svg/arrow-left.svg" alt="">
+      <h6>{{ "SIGN_UP_001" | translate }}</h6>
+    </span>
+    
+  </header>
+
+  <div class="main-register">
+    <!-- <label class="register-avatar" for="file">
+      <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M23.0625 15.5483C23.5803 15.5483 24 15.1286 24 14.6108V8.51709C24 6.44934 22.3177 4.76709 20.25 4.76709H18.8268C18.4253 4.76709 18.0687 4.51176 17.9393 4.13165L17.6557 3.29836C17.2675 2.15817 16.1976 1.39209 14.9932 1.39209H9.00389C7.82283 1.39209 6.75975 2.13848 6.35864 3.24932L6.03412 4.14801C5.90039 4.51828 5.54606 4.76709 5.15236 4.76709H3.75C1.68225 4.76709 0 6.44934 0 8.51709V19.2983C0 21.3661 1.68225 23.0483 3.75 23.0483H20.25C22.3177 23.0483 24 21.3661 24 19.2983C24 18.7806 23.5803 18.3608 23.0625 18.3608C22.5447 18.3608 22.125 18.7806 22.125 19.2983C22.125 20.3322 21.2839 21.1733 20.25 21.1733H3.75C2.71613 21.1733 1.875 20.3322 1.875 19.2983V8.51709C1.875 7.48321 2.71613 6.64209 3.75 6.64209H5.15236C6.33342 6.64209 7.3965 5.8957 7.79761 4.78486L8.12213 3.88617C8.25586 3.5159 8.61019 3.26709 9.00389 3.26709H14.9932C15.3946 3.26709 15.7513 3.52246 15.8807 3.90253L16.1643 4.73582C16.5524 5.87601 17.6224 6.64209 18.8268 6.64209H20.25C21.2839 6.64209 22.125 7.48321 22.125 8.51709V14.6108C22.125 15.1286 22.5447 15.5483 23.0625 15.5483Z"
+          fill="white" />
+        <path
+          d="M12.0469 7.57959C8.81602 7.57959 6.1875 10.2081 6.1875 13.439C6.1875 16.6698 8.81602 19.2983 12.0469 19.2983C15.2777 19.2983 17.9062 16.6698 17.9062 13.439C17.9062 10.2081 15.2777 7.57959 12.0469 7.57959ZM12.0469 17.4233C9.84989 17.4233 8.0625 15.6359 8.0625 13.439C8.0625 11.242 9.84989 9.45459 12.0469 9.45459C14.2439 9.45459 16.0312 11.242 16.0312 13.439C16.0312 15.6359 14.2439 17.4233 12.0469 17.4233Z"
+          fill="white" />
+      </svg>
+      <p>Upload image</p>
+    </label>
+    <input type="file" id="file" name="file" multiple hidden> -->
+
+    <form class="register-form" [formGroup]="loginForm">
+      <div class="form-left">
+        <div class="main-input username-input">
+          <label>{{ "SIGN_UP_002" | translate }}</label>
+          <input type="text" [placeholder]="'SIGN_UP_003' | translate " formControlName="Username">
+          <div class="delete-btn" [ngClass]="{'delete-btn-active': loginForm.get('Username').value.length !== 0}" (click)="loginForm.controls['Username'].setValue('')">
+            <img src="{{globals.urlFolder}}png/Delete-dark-theme.png" alt="Delete-dark-theme">
+          </div>
+          <div *ngIf="submitted && loginForm.controls.Username.errors" class="invalid-feedback">
+            <div *ngIf="loginForm.controls.Username.errors.required">{{ "SIGN_UP_004" | translate }}</div>
+            <div *ngIf="loginForm.controls.Username.errors.maxlength">{{ "SIGN_UP_028" | translate }}</div>
+          </div>
+        </div>
+
+        <div class="main-input email-input">
+          <label>{{ "SIGN_UP_005" | translate }}</label>
+          <input type="text" [placeholder]="'SIGN_UP_006' | translate" formControlName="Email" >
+          <div class="delete-btn"  [ngClass]="{'delete-btn-active': loginForm.get('Email').value.length !== 0}" (click)="loginForm.controls['Email'].setValue('')">
+            <img src="{{globals.urlFolder}}png/Delete-dark-theme.png" alt="Delete-dark-theme">
+          </div>
+          <div *ngIf="submitted && loginForm.controls.Email.errors" class="invalid-feedback">
+            <div *ngIf="loginForm.controls.Email.errors.required">{{ "SIGN_UP_007" | translate }}</div>
+            <div *ngIf="loginForm.controls.Email.errors.email">{{ "SIGN_UP_008" | translate }}</div>
+            <div *ngIf="loginForm.controls.Email.errors.maxlength">{{ "SIGN_UP_028" | translate }}</div>
+          </div>
+        </div>
+
+        <div class="main-input firstname-input">
+          <label>{{ "SIGN_UP_009" | translate }}</label>
+          <input type="text" [placeholder]="'SIGN_UP_010' | translate" formControlName="FirstName">
+          <div class="delete-btn" [ngClass]="{'delete-btn-active': loginForm.get('FirstName').value.length !== 0}" (click)="loginForm.controls['FirstName'].setValue('')">
+            <img src="{{globals.urlFolder}}png/Delete-dark-theme.png" alt="Delete-dark-theme">
+          </div>
+          <div *ngIf="submitted && loginForm.controls.FirstName.errors" class="invalid-feedback">
+            <div *ngIf="loginForm.controls.FirstName.errors.required">{{ "SIGN_UP_011" | translate }}</div>
+            <div *ngIf="loginForm.controls.FirstName.errors.pattern">{{ "SIGN_UP_012" | translate }}</div>
+            <div *ngIf="loginForm.controls.FirstName.errors.maxlength">{{ "SIGN_UP_028" | translate }}</div>
+          </div>
+        </div>
+
+        <div class="main-input lastname-input">
+          <label>{{ "SIGN_UP_013" | translate }}</label>
+          <input type="text" [placeholder]="'SIGN_UP_014' | translate" formControlName="LastName" >
+          <div class="delete-btn" [ngClass]="{'delete-btn-active': loginForm.get('LastName').value.length !== 0}" (click)="loginForm.controls['LastName'].setValue('')">
+            <img src="{{globals.urlFolder}}png/Delete-dark-theme.png" alt="Delete-dark-theme">
+          </div>
+          <div *ngIf="submitted && loginForm.controls.LastName.errors" class="invalid-feedback">
+            <div *ngIf="loginForm.controls.LastName.errors.required">{{ "SIGN_UP_015" | translate }}</div>
+            <div *ngIf="loginForm.controls.LastName.errors.pattern">{{ "SIGN_UP_016" | translate }}</div>
+            <div *ngIf="loginForm.controls.LastName.errors.maxlength">{{ "SIGN_UP_028" | translate }}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-right">
+        <div class="main-input phone-input">
+          <label>{{ "SIGN_UP_017" | translate }}</label>
+          <input type="text" ng-focus="" [placeholder]="'SIGN_UP_018' | translate" formControlName="Phone" >
+          <div class="delete-btn" [ngClass]="{'delete-btn-active': loginForm.get('Phone').value.length !== 0}" (click)="loginForm.controls['Phone'].setValue('')">
+            <img src="{{globals.urlFolder}}png/Delete-dark-theme.png" alt="Delete-dark-theme">
+          </div>
+          <div *ngIf="submitted && loginForm.controls.Phone.errors" class="invalid-feedback">
+            <div *ngIf="loginForm.controls.Phone.errors.required">{{ "SIGN_UP_031" | translate }}</div>
+            <div *ngIf="loginForm.controls.Phone.errors.pattern">{{ "SIGN_UP_019" | translate }}</div>
+            <div *ngIf="loginForm.controls.Phone.errors.maxlength">{{ "SIGN_UP_028" | translate }}</div>
+          </div>
+        </div>
+
+        <div class="main-input birth-input">
+          <label>D.O.B</label>
+          <input type="date" placeholder="Your date of birth" formControlName="DOB" [ngClass]="{'delete-btn-active': loginForm.get('DOB').value.length !== 0}">
+          <div class="delete-btn" [ngClass]="{'delete-btn-active': loginForm.get('DOB').value.length !== 0}" (click)="loginForm.controls['DOB'].setValue('')">
+            <img src="{{globals.urlFolder}}png/Delete-dark-theme.png" alt="Delete-dark-theme">
+          </div>
+        </div>
+
+        <div class="main-input password-input">
+          <label>{{ "SIGN_UP_022" | translate }}</label>
+          <input [type]="typePass" [placeholder]="'SIGN_UP_023' | translate" formControlName="Password" [ngClass]="{'delete-btn-active': loginForm.get('Password').value.length !== 0}">
+          <!-- <div class="delete-btn" [ngClass]="{'delete-btn-active': loginForm.get('Password').value.length !== 0}" (click)="loginForm.controls['Password'].setValue('')">
+            <img src="{{globals.urlFolder}}png/Delete-dark-theme.png" alt="Delete-dark-theme">
+          </div> -->
+          <button
+            class="show-hide"
+            *ngIf="typePass == 'password'"
+            (click)="typePass = 'text'"
+          >
+            <span class="material-icons"> visibility </span>
+          </button>
+          <button
+            class="show-hide"
+            *ngIf="typePass !== 'password'"
+            (click)="typePass = 'password'"
+          >
+            <span class="material-icons"> visibility_off </span>
+          </button>
+          <div *ngIf="submitted && loginForm.controls.Password.errors" class="invalid-feedback">
+            <div *ngIf="loginForm.controls.Password.errors.required">{{ "SIGN_UP_024" | translate }}</div>
+            <div *ngIf="loginForm.controls.Password.errors.maxlength">{{ "SIGN_UP_028" | translate }}</div>
+          </div>
+        </div>
+
+        <div class="main-input cf-pw-input">
+          <label>{{ "SIGN_UP_025" | translate }}</label>
+          <input [type]="typePassConfirm" [placeholder]="'SIGN_UP_026' | translate" formControlName="ConfirmPassword" >
+          <!-- <div class="delete-btn" [ngClass]="{'delete-btn-active': loginForm.get('ConfirmPassword').value.length !== 0}" (click)="loginForm.controls['ConfirmPassword'].setValue('')">
+            <img src="{{globals.urlFolder}}png/Delete-dark-theme.png" alt="Delete-dark-theme">
+          </div> -->
+          <button
+            class="show-hide-1"
+            *ngIf="typePassConfirm == 'password'"
+            (click)="typePassConfirm = 'text'"
+          >
+            <span class="material-icons"> visibility </span>
+          </button>
+          <button
+            class="show-hide-1"
+            *ngIf="typePassConfirm !== 'password'"
+            (click)="typePassConfirm = 'password'"
+          >
+            <span class="material-icons"> visibility_off </span>
+          </button>
+          <div *ngIf="submitted && loginForm.controls.ConfirmPassword.errors" class="invalid-feedback">
+            <div *ngIf="loginForm.controls.ConfirmPassword.errors.required">{{ "SIGN_UP_027" | translate }}</div>
+            <div *ngIf="loginForm.controls.ConfirmPassword.errors.maxlength">{{ "SIGN_UP_028" | translate }}</div>
+            <div *ngIf="loginForm.controls.ConfirmPassword.errors.mustMatch">{{ "SIGN_UP_030" | translate }}</div>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <div class="register-btn">
+      <button class="btn" (click)="signUp()">{{ "SIGN_UP_029" | translate }}</button>
+      <!-- <a href="#" class="btn">Next</a> -->
+    </div>
+  </div>
+</div>
+<section class="register confirmation password" *ngIf="typeConfirm === 2">
+  <header class="header">
+      <span (click)="back()">
+          <img src="{{globals.urlFolder}}svg/arrow-left.svg" alt="">
+          <h6 >{{ "FORGOT_PASSWORD_002" | translate }}</h6>
+      </span>
+  </header>
+
+  <app-confirmation [email]="email" (codeCallBack)="codeCallBack($event)"></app-confirmation>
+</section>
+<app-success-forgot [type]="2" *ngIf="typeConfirm === 3"></app-success-forgot>

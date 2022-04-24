@@ -1,0 +1,19 @@
+.detail-item .item-modul .modul-img {
+    height: 237px;
+    width: 237px;
+    background: rgb(219, 215, 215);
+    display: flex;
+    align-items: center;
+    border-radius: 16px;
+}
+
+main{
+    position: relative;
+}
+.content-footer {
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    width: 100%;
+    z-index: 11;
+}

@@ -1,0 +1,52 @@
+<div class="table-component">
+    <!-- <img ></img> -->
+    <div class="grid-row" *ngIf="title">
+      <div class="title">
+        {{title}}
+      </div>
+      <div>
+        <img class="close-img" (click)="close()" src="assets/svg/icon-add.svg ">
+      </div>
+    </div>
+    <div class="row">
+        <table class="data-table" >
+            <thead>
+                <tr [ngClass]="{'min-he': isPopup === true}">
+                    <th scope="col" *ngFor="let item of config" [style.width]="item.width">{{ item.name }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr [ngClass]="{'min-he': isPopup === true}" *ngFor="let item of data | paginate: { itemsPerPage: 10, currentPage: p }">
+                    <td *ngFor="let i of config ">
+                        <span *ngIf="i.type === 'number'">{{ item[i.condition] | number }}</span>
+                        <span *ngIf="i.type === 'string'">{{ item[i.condition] }}</span>
+                        <span *ngIf="i.type === 'date'">
+                            {{ item[i.condition] | date: "dd-MM-YYYY" }}
+                        </span>
+                        <span *ngIf="i.type === 'date2'">
+                          {{ item[i.condition] | date: "dd/MM/YYYY" }}
+                        </span>
+                        <span *ngIf="i.type === 'image'">
+                          <img [src]="item[i.condition]"
+                               class="image-table" />
+                        </span>
+                        <span *ngIf="i.type === 'upload'">
+                            <img src="assets/svg/upload-icon.svg" style="z-index: 99;"
+                                (click)="onClickAddResult(item,'upload')" class="upload-icon" />
+                        </span>
+                        <span *ngIf="i.type === 'setting'">
+                            <img src="assets/svg/icon-edit.svg" (click)="onClickAddResult(item,'edit')"
+                                class="upload-icon" />
+                            <img src="assets/svg/emr-admin-icon-delete.svg" (click)="onClickAddResult(item,'delete')"
+                                class="upload-icon" />
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="pagination" *ngIf="isPopup !== true">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+    </div>
+</div>

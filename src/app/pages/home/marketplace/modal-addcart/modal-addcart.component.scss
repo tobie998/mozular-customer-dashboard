@@ -1,0 +1,119 @@
+.mat-dialog-container{
+    padding: 0;    
+}
+.password {
+    font-family: 'Montserrat', sans-serif;
+
+    .header {
+        margin-bottom: 3.64125rem;
+    }
+
+    .main-password {
+
+        .password-info {
+            margin-bottom: 4.03125rem;
+
+            img {
+                height: 100%;
+            }
+        }
+
+        .password-form {
+
+            .form-text {
+                font-size: 1rem;
+                font-weight: 500;
+                line-height: 24px;
+                letter-spacing: 0.005rem;
+                color: #1A1A1A;
+                text-align: center;
+                margin: 0 0 2.25rem;
+            }
+
+            .form-main {
+                margin-bottom: 3.5rem;
+
+                label {
+                    font-size: 0.875rem;
+                    font-weight: 500;
+                    line-height: 18px;
+                    letter-spacing: -0.01rem;
+                    color: #616161;
+                }
+
+                input[type="text"] {
+                    display: block;
+                    width: 100%;
+                    font-size: 1rem;
+                    font-weight: 500;
+                    padding: 0.75rem 0;
+                    border: none;
+                    outline: none;
+                    background: inherit;
+                    color: #9F9F9F;
+                    border-bottom: 1px solid #616161;
+                }
+            }
+
+            .form-btn {
+                text-align: center;
+                padding-bottom: 13.375rem;
+
+                .btn {
+                    height: 3rem;
+                    font-size: 0.875rem;
+                    font-weight: 600;
+                    line-height: 17.07px;
+                    letter-spacing: 0.0125rem;
+                    padding: 0.96875rem 4.53125rem;
+                    background: #E1C579;
+                    color: #1A1A1A;
+                    border-radius: 24px;
+
+                    &:hover {
+                        background: #1F1F1F;
+                        color: #FFFFFF;
+                        // box-shadow: 0 0 0 1px $border-color-7 inset;
+                    }
+                }
+            }
+        }
+    }
+}
+.success {
+    padding: 0 2rem;
+    height: 27rem;
+    border-radius: 16px;
+    position: absolute;
+    top: 15rem;
+}
+.success .success-info img {
+    height: 20vh;
+    margin-top: 2rem;
+}
+.success .success-text {
+    padding: 0 2rem;
+}
+::ng-deep {
+    .mat-dialog-container {
+        padding: 0;
+    }
+}
+.success .success-btn {
+    position: relative;
+    top: -2.5rem;
+}
+@media screen and (max-width: 1024px) {
+    .success {
+       padding: 0;
+       height: 19rem;
+    }
+}
+@media screen and (max-width: 1440px) {
+    .success {
+        height: 22rem;
+        position: absolute;
+        top: 5rem;
+    }
+}
+

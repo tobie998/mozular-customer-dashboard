@@ -1,0 +1,89 @@
+<main>
+    <div class="main-content">
+        <div class="create-order create-payment">
+            <div class="order-form">
+                <div class="order-member">
+                    <div class="box-create-order">
+                        <div class="title">
+                            <h2>{{  "PAYMENT_001"  | translate }}</h2>
+                            <img src="{{globals.urlFolder}}png/Drop down1.png" >
+                        </div>
+                        
+                        <form [formGroup]="paymentForm">
+                            <label for="">{{  "PAYMENT_002"  | translate }}</label>
+                            <input type="text" id="name" formControlName="show_name" [placeholder]=" 'PAYMENT_003'  | translate" disabled>
+                            <label for="">{{  "PAYMENT_004"  | translate }}</label>
+                            <input type="text" id="oname" formControlName="organization_name"  [placeholder]=" 'PAYMENT_005'  | translate" disabled>
+                            <label for="">{{  "PAYMENT_006"  | translate }}</label>
+                            <input type="email"  id="email" formControlName="email" [placeholder]=" 'PAYMENT_007'  | translate" disabled>
+                            <label for="">{{  "PAYMENT_008"  | translate }}</label>
+                            <input type="tel" id="tel" formControlName="phone" [placeholder]=" 'PAYMENT_009'  | translate" disabled>
+                        </form>
+                    </div>
+                    <div class="box-create-order">
+                        <div class="title">
+                            <h2>{{  "PAYMENT_010"  | translate }}</h2>
+                        </div>
+                        <ul class="method-payment">
+                            <li  *ngFor="let method of paymentMethods; let i = index">
+                                <div class="box-txt">
+                                    <img src="{{globals.urlFolder}}png/Group 1036.png">
+                                    <p>{{method.name}}<br><span>({{method.description}})</span></p>
+                                </div>
+                                <div class="box-checked">
+                                    <input type="radio" name="options" [value]="method.name" [id]="i" [(ngModel)]="methodName">
+                                    <label [for]="i"></label>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="order-module mini-cart">
+                    <div class="box-create-order">
+                        <div class="title">
+                            <h2>{{  "PAYMENT_011"  | translate }}</h2>
+                        </div>
+            
+                        <ul class="list-product">
+                            <li *ngFor="let module of listModule">
+                                <div class="box-img">
+                                    <img [src]="module.image1">
+                                </div>
+                                <div class="box-txt">
+                                    <p class="product-name">{{module.name}}</p>
+                                    <p class="product-price">{{module.price}}{{module.currency}}</p>
+                                </div>
+                            </li>
+                        </ul>
+            
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>{{  "PAYMENT_012"  | translate }}</td>
+                                    <td>{{total?.subtotal}}$</td>
+                                </tr>
+                                <tr>
+                                    <td>{{  "PAYMENT_013"  | translate }}</td>
+                                    <td>-{{total?.discount}}$</td>
+                                </tr>
+                                <tr>
+                                    <td>{{  "PAYMENT_014"  | translate }}</td>
+                                    <td>{{total?.total}}$</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="submit-create">
+                <div class="total-cart show-mobile">
+                    <p>{{  "PAYMENT_014"  | translate }}</p>
+                    <p>1.950.000 Đ</p>
+                </div>
+                <button class="active" (click)="payment()"><img src="{{globals.urlFolder}}png/Billing.png">{{  "PAYMENT_015"  | translate }}</button>
+            </div>
+        </div> 
+    </div>
+    
+</main>

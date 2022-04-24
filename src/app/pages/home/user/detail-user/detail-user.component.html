@@ -1,0 +1,56 @@
+<div class="create-member">
+    <div class="profile-member">
+        <div class="col-left">
+            <div class="box-img">
+                <label for="upload_image" [ngClass]="{'box-upload': !imgUrl || imgUrl.length === 0}">
+                    <div class="box-child"  *ngIf="!imgUrl || imgUrl.length === 0">
+                        <img src="{{globals.urlFolder}}png/Camera.png" alt="">
+                        <span>{{  "DETAIL_USER_001" | translate }}</span>
+                        <input type="file" name="" (change)="handleFileInput($event.target.files)" id="upload_image" class="hidden" accept="image/jpeg, image/png" [attr.disabled]="(statusEdit === false) ? '' : null"/>
+                    </div>
+                    <div  *ngIf="imgUrl?.length !== 0" >
+                        <img [src]="imgUrl" alt="">
+                        <input type="file" name="" (change)="handleFileInput($event.target.files)" id="upload_image" class="hidden" accept="image/jpeg, image/png" [attr.disabled]="(statusEdit === false) ? '' : null"/>
+                    </div>
+                </label>
+            </div>
+            <div class="module-status">
+                <div class="box-module">
+                    <label for="">{{  "DETAIL_USER_002" | translate }}</label>
+                    <div class="btn-module-status">
+                        <span class="active">{{  "DETAIL_USER_003" | translate }}</span>
+                        <span>{{  "DETAIL_USER_004" | translate }}</span>
+                    </div>
+                    <button class="change-password" mat-raised-button (click)="openDialog()"><img src="{{globals.urlFolder}}png/Password.png">{{  "DETAIL_USER_005" | translate }}</button>
+                    <button *ngIf="statusEdit === false" class="edit-profile" (click)="statusEdit = true;"><img src="{{globals.urlFolder}}png/Edit.png">{{  "DETAIL_USER_006" | translate }}</button>
+                    <button *ngIf="statusEdit === true" class="edit-profile" (click)="save()">{{  "DETAIL_USER_007" | translate }}</button>
+                </div>
+                <button class="close-profile">{{  "DETAIL_USER_008" | translate }}</button>
+            </div>
+        </div>
+        <div class="col-right">
+            <form [formGroup]="addForm">
+                <div class="form-group">
+                    <label for="">{{  "DETAIL_USER_009" | translate }}</label>
+                    <input type="email" name="" id="" [placeholder]="'DETAIL_USER_010' | translate" formControlName="email" [attr.disabled]="(statusEdit === false) ? '' : null">
+                    <span *ngIf = "addForm.get('email').invalid && isTouchSave === true" class="text-error">Email không hợp lệ</span>
+                </div>
+                <div class="form-group">
+                    <label for="">{{  "DETAIL_USER_011" | translate }}</label>
+                    <input type="text" name="" id="" [placeholder]="'DETAIL_USER_012' | translate" formControlName="first_name" [attr.disabled]="(statusEdit === false) ? '' : null">
+                    <span *ngIf = "addForm.get('first_name').invalid && isTouchSave === true" class="text-error">Họ không được để trống</span>
+                </div>
+                <div class="form-group">
+                    <label for="">{{  "DETAIL_USER_013" | translate }}</label>
+                    <input type="text" name="" id="" [placeholder]="'DETAIL_USER_014' | translate" formControlName="last_name" [attr.disabled]="(statusEdit === false) ? '' : null">
+                    <span *ngIf = "addForm.get('last_name').invalid && isTouchSave === true" class="text-error">Tên không được để trống</span>
+                </div>
+                <div class="form-group">
+                    <label for="">{{  "DETAIL_USER_015" | translate }}</label>
+                    <input type="tel" name="" id="" [placeholder]="'DETAIL_USER_016' | translate" formControlName="phone" [attr.disabled]="(statusEdit === false) ? '' : null">
+                    <span *ngIf = "addForm.get('phone').invalid && isTouchSave === true" class="text-error">Số điện thoại không đúng định dạng</span>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

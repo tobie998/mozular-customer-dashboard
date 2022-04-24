@@ -1,0 +1,17 @@
+{
+    "production": false,
+    "apiUrl": "https://0ntn43rg1h.execute-api.ap-southeast-1.amazonaws.com/Dev",
+    "modUrl": "https://nmlq47hhge.execute-api.ap-southeast-1.amazonaws.com/Dev",
+    "carUrl": "https://gsl3xchqjb.execute-api.ap-southeast-1.amazonaws.com/Dev",
+    "proUrl": "https://0ntn43rg1h.execute-api.ap-southeast-1.amazonaws.com/Dev",
+    "defaultLanguage": "en-US",
+    "supportedLanguages": [
+      "en",
+      "ja"
+    ],
+    "themeColors":"assets/theme/theme1/theme.json",
+    "apiImagesSource":"assets/theme/theme1/",
+    "themeColors2":"#FF00FF",
+    "userPoolId": "ap-southeast-1_IrZUajzzE",
+    "clientId": "2p3klccb7q0nke1ik8rhcum52a"
+  }

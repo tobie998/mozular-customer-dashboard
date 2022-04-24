@@ -1,0 +1,26 @@
+<div class="confirmation">
+    <div class="main">
+        <div class="main-info">
+            <img src="{{globals.urlFolder}}png/confirm-background.png" alt="">
+        </div>
+    
+        <div class="main-input">
+            <label>{{   "CONFIRMATION_001"  | translate }} {{textEmail}}.
+                {{   "CONFIRMATION_002"  | translate }}
+            </label>
+            <div class="input-holder">
+                <input type="text" #input0 (paste)="onPaste($event)" [(ngModel)]="code[0]" maxlength="6" (ngModelChange)="channgeFocus(1)">
+                <input type="text" #input1 (paste)="onPaste($event)" [(ngModel)]="code[1]" maxlength="6" (ngModelChange)="channgeFocus(2)">
+                <input type="text" #input2 (paste)="onPaste($event)" [(ngModel)]="code[2]" maxlength="6" (ngModelChange)="channgeFocus(3)">
+                <input type="text" #input3 (paste)="onPaste($event)" [(ngModel)]="code[3]" maxlength="6" (ngModelChange)="channgeFocus(4)">
+                <input type="text" #input4 (paste)="onPaste($event)" [(ngModel)]="code[4]" maxlength="6" (ngModelChange)="channgeFocus(5)">
+                <input type="text" #input5 (paste)="onPaste($event)" [(ngModel)]="code[5]" maxlength="1" >
+            </div>
+        </div>
+    
+        <div class="main-btn">
+            <button class="btn-resend" (click)="resendConfirm()">{{   "CONFIRMATION_003"  | translate }} ({{time}}s)</button>
+            <button class="btn-cf" (click)="confirm()">{{   "CONFIRMATION_004"  | translate }}</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,61 @@
+<main>
+    <div class="content-header">
+        <div class="header-modul">{{  "CART_PAYMENT_001"  | translate }}</div>
+        <div class="header-price">{{   "CART_PAYMENT_002"  | translate }}</div>
+        <div class="header-discount">{{  "CART_PAYMENT_003"  | translate }}</div>
+        <div class="header-delete"></div>
+    </div>
+
+    <div class="content-details">
+        <div class="detail-item" *ngFor="let module of listModule">
+            <div class="item-modul">
+                <div class="modul-img">
+                    <a *ngIf="module.image2">
+                        <img [src]="module.image2" alt="Module">
+                    </a>
+                    <!-- <div *ngIf="module.image2"></div> -->
+                </div>
+                
+                <div class="modul-text">
+                    <a  class="text-main">{{module.name}}</a>
+                    <p>{{module.short_description}}</p>
+                </div>
+            </div>
+
+            <div class="item-price">{{module.price}}{{module.currency}}</div>
+            <div class="item-discount">0</div>
+            <div class="item-delete" (click)="deleteModule(module)">
+                <img src="{{globals.urlFolder}}svg/delete.svg"   alt="delete">                          
+            </div>
+        </div>
+    </div>
+    
+    <div class="content-footer">
+        <div class="content-total">
+            <div class="input-discount">
+                <input class="total-input" type="text" placeholder="Nhập voucher tại đây" [(ngModel)]="voucher" 
+                [attr.disabled]="(!listModule || listModule.length === 0) ? '' : null">
+                <button class="total-btn" (click)="addVoucher()">{{ "CART_PAYMENT_004"  | translate }}  </button>
+            </div>
+            <p class="total-text">{{ "CART_PAYMENT_005"  | translate }}</p>
+            <p class="total-money">{{total}}$</p>
+        </div>
+        <div class="content-btn">
+            <div class="btn-left">
+                <button class="btn-more" (click)="showMore()">
+                    {{ "CART_PAYMENT_006"  | translate }}                    
+                </button>
+            </div>
+        
+            <div class="btn-right" *ngIf="listModule && listModule.length !== 0">
+                <!-- <button class="btn-del-cart">
+                    {{ "CART_PAYMENT_007"  | translate }}                          
+                </button> -->
+        
+                <button class="btn-pay" (click)="payment()">
+                    {{ "CART_PAYMENT_008"  | translate }}                        
+                </button>
+            </div>
+        </div>
+    </div>
+</main>

@@ -1,0 +1,191 @@
+.main_tracker .main_head {
+  position: relative;
+}
+.main_tracker .main_head .image_banner img {
+  width: 100%;
+}
+.main_tracker .main_head .logo-image {
+  position: absolute;
+  left: 13%;
+  top: 5rem;
+}
+.main_tracker .main_head .logo-image img {
+  width: 50%;
+}
+.main_tracker .main_head .banner_content {
+  min-width: 87%;
+  padding: 0 5rem;
+  position: absolute;
+  top: 21rem;
+  margin-left: 7%;
+}
+
+
+.main_tracker .main_head .banner_content #changecolor {
+  background: #ffffff80;
+}
+
+.main_tracker .main_head .banner_content .time_price .left {
+  position: relative;
+  top: 0.6rem;
+}
+
+.main_head .banner_content .time_price .left .take_add {
+  border: none;
+  background: transparent;
+  display: flex;
+  color: #fff;
+}
+.main_head .banner_content .time_price .left .deleteBtn {
+  display: none;
+}
+.main_head .banner_content .time_price .left .take_add #addArrow {
+  position: relative;
+  top: -0.4rem;
+}
+.main_head .banner_content .time_price .left .take_add #add {
+  color: black;
+}
+.main_head .banner_content .time_price .left .take_add span {
+  position: relative;
+  top: -0.5rem;
+  margin-right: 1rem;
+}
+.main_tracker .main_head .banner_content .time_price {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  height: 279px;
+  margin-top: 150px;
+  background: #1a1a1abf;
+  padding: 14px 36px;
+  border-radius: 16px;
+}
+.main_tracker .main_head .banner_content .time_price .right {
+  margin-top: 36px;
+}
+
+.bill {
+  display: flex;
+}
+.bill p {
+  font-weight: bold;
+}
+.bill img {
+  width: 20px;
+  height: 20px;
+}
+.bill #count {
+  font-size: 1rem;
+  margin-left: 0.6rem;
+}
+.bill #money {
+  font-size: 1.4rem;
+  margin-left: 1.5rem;
+}
+.addcart {
+  justify-content: center;
+  align-items: center;
+  padding: 8px 16px 8px 24px;
+  display: flex;
+  background: #1a1a1a;
+  border-radius: 30px;
+  border: 0;
+  outline: none;
+  color: white;
+  position: absolute;
+  bottom: 36px;
+}
+.addproduct:hover {
+  background-color: rgb(165, 116, 42);
+}
+.addcart img {
+  margin-left: 1.1rem;
+}
+#tent {
+  width: 90%;
+  margin-top: 36px;
+}
+#tent h2 {
+  font-size: 2.2rem;
+}
+#tent .full {
+  width: 49rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 1rem;
+}
+
+.main_tracker .main_head .text {
+  font-size: 16px;
+}
+.main_head .text {
+  overflow: hidden;
+}
+
+
+
+@media screen and (max-width: 1024px) {
+  
+  .main_tracker .main_head .logo-image {
+    display: none;
+  }
+  .main_tracker .main_head .banner_content {
+    top: 2rem;
+  }
+  .main_tracker .main_head .text {
+    padding: 2rem 1rem;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .main_tracker .main_head .logo-image img {
+    display: block;
+    border-radius: 16px;
+    width: 35%;
+  }
+  .main_tracker .main_head .banner_content .time_price {
+    height: 200px;
+    margin-top: 4rem;
+  }
+  .main_tracker .main_head .text {
+    padding: 2rem 1rem;
+  }
+}
+
+@media screen and (max-width: 1920px){
+  .main_tracker .main_head .logo-image img {
+    display: block;
+    border-radius: 16px;
+  }
+  .main_tracker .main_head .text {
+    padding: 2rem 1rem;
+  }
+}
+
+@media screen and (max-width: 375px){
+  .main_tracker .main_head .banner_content {
+      padding: 0 ;
+      position: relative;
+      max-width: 100%;
+      height: 8rem;
+  }
+  .main_tracker .main_head .banner_content #changecolor {
+    background: transparent;
+    padding: 0;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+  }
+  .main_tracker .main_head .banner_content .time_price #tent {
+    position: relative;
+    top: 0;
+    width: 100%;
+    margin: -2rem 0;
+  }
+  .main_tracker .main_head .banner_content .time_price .right {
+    display: none;
+  }
+  .main_tracker .main_head .text p {
+    padding: 0 1rem;
+  }
+}
+

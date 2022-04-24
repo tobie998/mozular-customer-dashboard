@@ -1,0 +1,13 @@
+<section class="register success">
+    <div class="success-info">
+        <img src="{{globals.urlFolder}}png/succes.png" alt="">
+         
+    </div>
+
+    <div class="success-text" *ngIf="type === 1"> {{ "SUCESSFULL_PASSWORD_001"  | translate }}</div>
+    <div class="success-text" *ngIf="type === 2"> {{ "SUCESSFULL_PASSWORD_003"  | translate }}</div>
+
+    <div class="success-btn">
+        <button class="btn" (click)="back('/login')"> {{ "SUCESSFULL_PASSWORD_002"  | translate }}</button>
+    </div>
+</section>

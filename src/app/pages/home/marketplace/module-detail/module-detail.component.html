@@ -1,0 +1,112 @@
+<div class="main_tracker">
+  <div class="main_head">
+    <div class="logo-image">
+      <img [src]="moduleDetail.image2" id="logo-ima">
+    </div>
+    <div class="image_banner">
+      <!-- <img [src]="moduleDetail.image3" /> -->
+      <img src="{{globals.urlFolder}}png/HRM 1.png">
+    </div>
+    
+    <div class="banner_content">
+      <!-- <img src="{{globals.urlFolder}}png/Logo_1@4x 1.png" id="logo" /> -->
+      <!-- <div class="logo-image">
+        <img [src]="moduleDetail.image2" id="logo-ima">
+      </div> -->
+      
+      <div class="time_price" id="changecolor">
+        <div class="left changeLeft" id="tent">
+          <h2>{{moduleDetail.name}}</h2>
+          <h3>{{moduleDetail.short_description}}</h3>
+            
+         
+        </div>
+        <div class="right" id="rightchange">
+          <div class="bill">
+            <img src="{{globals.urlFolder}}png/money.png" />
+            <p id="count">{{   "MARKETPLACE_002"  | translate }}</p>
+            <p id="money">{{moduleDetail.price}}{{moduleDetail.currency}}</p>
+          </div>
+          <div>
+            <button class="addcart addproduct" (click)="addCart()" *ngIf="showAdd === false">
+              <span>{{   "MARKETPLACE_003"  | translate }}</span>
+              <img src="{{globals.urlFolder}}png/cart-w.png" />
+          </button>
+          <div class="addcart" (click)="addCart()" *ngIf="showAdd === true">
+            <span>{{   "MARKETPLACE_004"  | translate }}</span>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+      <div class="text" [innerHTML]="moduleDetail.description">
+        <!-- <span>{{moduleDetail.description}}</span> -->
+      </div>
+    </div>
+
+    <!-- <div class="content_rule">
+      <div class="on_content">
+        <div class="on_left">
+          <h2 id="color_change" class="color_descript">Mô tả chi tiết</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Mauris sit quisque felis libero sed ultrices lacus, eleifend.
+            Diam posuere leo, penatibus egestas purus facilisis proin
+            nunc.
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Mauris sit quisque felis libero sed ultrices lacus, eleifend.
+            Diam posuere leo, penatibus egestas purus facilisis proin
+            nunc.
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Mauris sit quisque felis libero sed ultrices lacus, eleifend.
+            Diam posuere leo, penatibus egestas purus facilisis proin
+            nunc.
+          </p>
+        </div>
+        <div class="on_image" id="module_image">
+          <img [src]="moduleDetail.image2" id="detail_image" />
+        </div>
+      </div>
+      <div class="down_content">
+        <div class="down_left" id="down_image">
+          <img [src]="moduleDetail.image3" id="image_module" />
+        </div>
+        <div class="down_right">
+          <div class="note">
+            <h2 class="change_feature">Feature 1</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Mauris sit quisque felis libero sed ultrices lacus,
+              eleifend. Diam posuere leo, penatibus egestas purus
+              facilisis proin nunc. Consectetur pulvinar pretium feugiat
+              enim, convallis. Massa sed diam sed sociis purus.
+            </p>
+          </div>
+          <div class="note">
+            <h2 class="change_feature">Feature 2</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Mauris sit quisque felis libero sed ultrices lacus,
+              eleifend. Diam posuere leo, penatibus egestas purus
+              facilisis proin nunc. Consectetur pulvinar pretium feugiat
+              enim, convallis. Massa sed diam sed sociis purus.
+            </p>
+          </div>
+          <div class="note">
+            <h2 class="change_feature">Feature 3</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Mauris sit quisque felis libero sed ultrices lacus,
+              eleifend. Diam posuere leo, penatibus egestas purus
+              facilisis proin nunc. Consectetur pulvinar pretium feugiat
+              enim, convallis. Massa sed diam sed sociis purus.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div> -->
+  </div>
